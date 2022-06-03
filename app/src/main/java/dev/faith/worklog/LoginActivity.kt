@@ -1,9 +1,11 @@
 package dev.faith.worklog
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.widget.Button
+import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
@@ -13,6 +15,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var etEmail: TextInputEditText
     lateinit var tilpassword: TextInputLayout
     lateinit var etpassword: TextInputEditText
+    lateinit var tvsignup:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -21,12 +24,25 @@ class LoginActivity : AppCompatActivity() {
         etEmail = findViewById(R.id.etEmail)
         tilpassword = findViewById(R.id.tilpassword)
         etpassword = findViewById(R.id.etpassword)
-        btnlogin.setOnClickListener { validatelogin() }
+        tvsignup = findViewById(R.id.tvsignup)
+//        btnlogin.setOnClickListener { validatelogin() }
 
+        tvsignup.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
+        btnlogin.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+
+            validateLogin()
+
+        }
     }
 
-    fun validatelogin() {
+    fun validateLogin() {
         var error = false
+
         tilEmail.error=null
         tilpassword.error=null
         var email = etEmail.text.toString()

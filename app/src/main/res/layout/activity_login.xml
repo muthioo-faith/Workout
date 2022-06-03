@@ -35,31 +35,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilpassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilEmail"
-        app:passwordToggleEnabled="true"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etpassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/password"
-
-        android:inputType="textPassword" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <Button
         android:id="@+id/btnlogin"
         android:layout_width="wrap_content"
@@ -67,11 +42,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="#F44336"
-        android:text="Login"
+        android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilpassword" />
+        app:layout_constraintTop_toBottomOf="@+id/tilpassword"
+        app:layout_constraintVertical_bias="0.355" />
 
     <TextView
         android:id="@+id/tvsignup"
@@ -86,4 +63,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnlogin"
         app:layout_constraintVertical_bias="0.466" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilpassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilEmail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imgicon"
+        android:layout_width="220dp"
+        android:layout_height="199dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_person_outline_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
