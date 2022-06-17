@@ -25,6 +25,11 @@ class LoginActivity : AppCompatActivity() {
         binding.btnlogin.setOnClickListener {
             validatelogin()
             startActivity(Intent(this, HomeActivity::class.java))
+
+        }
+        binding.tvsignup.setOnClickListener {
+            val intent=Intent(this,SignUpActivity::class.java)
+            startActivity(intent)
         }
     }
     fun validatelogin() {
