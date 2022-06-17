@@ -9,59 +9,39 @@ import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import dev.faith.worklog.databinding.ActivityLoginBinding
 import java.util.regex.Pattern
 import java.util.regex.PatternSyntaxException
 
 class LoginActivity : AppCompatActivity() {
-    lateinit var btnlogin: Button
-    lateinit var tilEmail: TextInputLayout
-    lateinit var etEmail: TextInputEditText
-    lateinit var tilpassword: TextInputLayout
-    lateinit var etpassword: TextInputEditText
-    lateinit var tvsignup:TextView
+    lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-        btnlogin = findViewById(R.id.btnlogin)
-        tilEmail = findViewById(R.id.tilEmail)
-        etEmail = findViewById(R.id.etEmail)
-        tilpassword = findViewById(R.id.tilpassword)
-        etpassword = findViewById(R.id.etpassword)
-        tvsignup = findViewById(R.id.tvsignup)
-//        btnlogin.setOnClickListener { validatelogin() }
-
-        tvsignup.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
-        }
-        btnlogin.setOnClickListener {
-            startActivity(Intent(this,HomeActivity::class.java))
-            validateLogin()
-
-
+        binding= ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        castView()
+    }
+    fun castView() {
+        binding.btnlogin.setOnClickListener {
+            validatelogin()
+            startActivity(Intent(this, HomeActivity::class.java))
         }
     }
-
-    fun validateLogin() {
+    fun validatelogin() {
         var error = false
-
-        tilEmail.error=null
-        tilpassword.error=null
-        var email = etEmail.text.toString()
+        binding.tilEmail.error = null
+        binding.tilpassword.error = null
+        var email = binding.etEmail.text.toString()
         if (email.isBlank()) {
-            tilEmail.error = "Email is required"
+            binding.tilEmail.error = "Email is required"
             error = true
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            tilEmail.error = "Not a valid email address"
-            error = true
-        }
-        var password = etpassword.text.toString()
+        var password = binding.etpassword.text.toString()
         if (password.isBlank()) {
-            tilpassword.error = "Password is required"
+            binding.tilpassword.error = "Password is required"
             error = true
-        }
-        if (error != true) {
         }
     }
 }
+
+
